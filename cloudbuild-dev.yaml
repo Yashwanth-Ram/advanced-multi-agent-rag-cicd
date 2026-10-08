@@ -1,0 +1,31 @@
+# Trusted main-branch deploy. No secrets or live evaluations in build steps.
+substitutions:
+  _ARTIFACT_BUCKET: test-rag-poc-508116-advanced-rag-artifacts
+  _RUNTIME_RESOURCE: ''
+steps:
+- name: python:3.12-slim
+  entrypoint: bash
+  args:
+  - -ceu
+  - |
+    python -m pip install -r requirements-dev.txt
+    bash scripts/check_all.sh
+    set -a
+    source config/dev.env
+    set +a
+    export RELEASE_VERSION="dev-$BUILD_ID"
+    export RELEASE_COMMIT="$COMMIT_SHA"
+    export AGENT_RUNTIME_RESOURCE="${_RUNTIME_RESOURCE}"
+    python -m deployment.deploy
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  entrypoint: bash
+  args:
+  - -ceu
+  - |
+    tar --exclude=.venv --exclude=.eval-venv --exclude=.git --exclude=.env --exclude=artifacts -czf /tmp/release.tar.gz .
+    gcloud storage cp /tmp/release.tar.gz "gs://${_ARTIFACT_BUCKET}/releases/$BUILD_ID/source.tar.gz"
+    gcloud storage cp artifacts/deployment.json "gs://${_ARTIFACT_BUCKET}/releases/$BUILD_ID/deployment.json"
+    gcloud storage cp artifacts/offline-eval.json "gs://${_ARTIFACT_BUCKET}/releases/$BUILD_ID/offline-eval.json"
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 2400s

@@ -1,0 +1,12 @@
+# PR checks: use advanced-rag-ci SA, which has no deployment/data/secret access.
+steps:
+- name: python:3.12-slim
+  entrypoint: bash
+  args:
+  - -ceu
+  - |
+    python -m pip install -r requirements-dev.txt
+    bash scripts/check_all.sh
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 1200s

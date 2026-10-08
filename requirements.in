@@ -1,0 +1,9 @@
+google-cloud-agentplatform[runtimes,adk]==2.2.0
+google-adk==2.10.0
+arize-phoenix-otel==0.17.1
+openinference-instrumentation-google-adk==1.0.0
+google-cloud-modelarmor==0.7.1
+google-cloud-dlp==3.39.0
+google-cloud-secret-manager==2.30.0
+google-cloud-discoveryengine==0.20.4
+opentelemetry-exporter-gcp-trace==1.15.0

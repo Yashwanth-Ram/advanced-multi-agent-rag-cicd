@@ -1,0 +1,93 @@
+{
+  "eval_set_id": "router_smoke",
+  "name": "Router smoke tests",
+  "eval_cases": [
+    {
+      "eval_id": "hr_leave",
+      "conversation": [
+        {
+          "invocation_id": "hr_leave",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "What is the maternity leave policy?"
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "{\"tasks\": [{\"department\": \"hr\", \"question\": \"What is the maternity leave policy?\"}], \"clarification\": \"\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "rag_agent",
+        "user_id": "dev-evaluation",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "technical_release",
+      "conversation": [
+        {
+          "invocation_id": "technical_release",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "What is the production deployment procedure?"
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "{\"tasks\": [{\"department\": \"technical\", \"question\": \"What is the production deployment procedure?\"}], \"clarification\": \"\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "rag_agent",
+        "user_id": "dev-evaluation",
+        "state": {}
+      }
+    },
+    {
+      "eval_id": "management_budget",
+      "conversation": [
+        {
+          "invocation_id": "management_budget",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Who approves departmental budgets?"
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "{\"tasks\": [{\"department\": \"management\", \"question\": \"Who approves departmental budgets?\"}], \"clarification\": \"\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "rag_agent",
+        "user_id": "dev-evaluation",
+        "state": {}
+      }
+    }
+  ]
+}

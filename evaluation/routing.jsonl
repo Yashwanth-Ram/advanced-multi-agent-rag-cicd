@@ -1,0 +1,5 @@
+{"id":"hr_leave","question":"What is the maternity leave policy?","departments":["hr"]}
+{"id":"tech_release","question":"What is the production deployment procedure?","departments":["technical"]}
+{"id":"management_budget","question":"Who approves departmental budgets?","departments":["management"]}
+{"id":"mixed_onboarding","question":"Which HR onboarding forms and IT equipment steps are required for a new hire?","departments":["hr","technical"]}
+{"id":"vague","question":"What is the policy?","departments":[],"clarification":true}

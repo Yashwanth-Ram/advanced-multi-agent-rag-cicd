@@ -1,0 +1,1 @@
+{"displayName":"Advanced RAG dev","gridLayout":{"columns":"2","widgets":[{"title":"Request logs","logsPanel":{"filter":"jsonPayload.event=\"request_completed\"","resourceNames":[]}},{"title":"Agent Runtime errors","logsPanel":{"filter":"severity>=ERROR AND resource.type=\"aiplatform.googleapis.com/ReasoningEngine\"","resourceNames":[]}}]}}

@@ -1,0 +1,1 @@
+{"id":"replace_with_reviewed_case","reviewed":false,"question":"Replace with a question from your documents","departments":["hr"],"expected_source_uris":["gs://company-rag-documents/hr/REPLACE.pdf"],"expected_facts":["Replace with a fact verified by a policy reviewer"],"expected_status":"answered"}

@@ -1,0 +1,9 @@
+.venv/
+.eval-venv/
+__pycache__/
+*.pyc
+.env
+artifacts/*
+!artifacts/.gitkeep
+.pytest_cache/
+.ruff_cache/
